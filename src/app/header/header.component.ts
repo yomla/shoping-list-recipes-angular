@@ -1,26 +1,21 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 
 export class HeaderComponent implements OnInit {
-    @Output() showRecipes = new EventEmitter<boolean>();
-    @Output() showShoppingList = new EventEmitter<boolean>();
+  @Output() featureSelected = new EventEmitter<string>();
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() {        
-    }
+  ngOnInit() {        
+  }
 
-    onShowRecipes() {
-        this.showRecipes.emit(true);
-    }
-
-    onShowShoppingList() {
-        this.showShoppingList.emit(true);
-    }
+  onSelect(feature: string) {
+    this.featureSelected.emit(feature);
+  }
 
 }
