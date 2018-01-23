@@ -36,7 +36,9 @@
         </li>
         <!-- [routerLink]="['/recipes', id, 'edit']" this link can be applied here instead click event -->
         <li>
-          <a style="cursor: pointer">Delete Recipe</a>
+          <a 
+            style="cursor: pointer"
+            (click)="onDeleteRecipe()">Delete Recipe</a>
         </li>                
       </ul>
     </div>
