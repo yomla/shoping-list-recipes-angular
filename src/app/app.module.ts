@@ -14,6 +14,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { HeaderComponent } from './header/header.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
 
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -32,7 +34,9 @@ import { DataStorageService } from './shared/data-storage.service';
     HeaderComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
