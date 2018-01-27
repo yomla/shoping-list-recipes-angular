@@ -21,6 +21,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { DataStorageService } from './shared/data-storage.service';
     AppRoutingModule,
     HttpModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
