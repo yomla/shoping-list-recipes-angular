@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import 'rxjs/Rx';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from './../recipes/recipe.model';
@@ -15,9 +15,10 @@ export class DataStorageService {
   storeRecipes() {
     const token = this.authService.getToken();
     // const header = new HttpHeaders().set('Authorization', 'Bearer dsaafdafafsdf');
-    return this.httpClient.put('https://ng-recipe-book-7466b.firebaseio.com/recipes.json?auth=' + token,
+    return this.httpClient.put('https://ng-recipe-book-7466b.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(), {
         observe: 'body',
+        params: new HttpParams().set('auth', token)
         // headers: header
       });
   }
@@ -26,9 +27,10 @@ export class DataStorageService {
     const token = this.authService.getToken();
 
     // this.httpClient.get<Recipe[]>('https://ng-recipe-book-7466b.firebaseio.com/recipes.json?auth=' + token)
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-7466b.firebaseio.com/recipes.json?auth=' + token, {
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-7466b.firebaseio.com/recipes.json', {
       observe: 'body',
-      responseType: 'json'
+      responseType: 'json',
+      params: new HttpParams().set('auth', token)
     })
       .map(
         (recipes) => {
